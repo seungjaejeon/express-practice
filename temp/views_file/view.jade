@@ -4,8 +4,14 @@ html
         meta(charset='utf-8')
         title view 
     body 
-        h1 Server Side JavaScript
+        h1 
+            a(href='/topic') Server Side JavaScript
         ul 
             each topic in topics 
                 li 
                     a(href='/topic/'+topic)= topic 
+        article 
+            h2= title 
+            p= descriptions
+            div 
+                a(href="/topic/new") 글쓰기 
