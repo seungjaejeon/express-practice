@@ -45,14 +45,14 @@ connection.connect();//database 연결
 // })
 
 //데이터 삭제하기
-var sql = 'DELETE FROM topic WHERE id=?';
-var params = ['8'];
-connection.query(sql,params, function(err, rows, fields){
-    if(err){
-        console.log(err);
-    }
-    else{
-        console.log(rows);
-    }
-})
+// var sql = 'DELETE FROM topic WHERE id=?';
+// var params = ['8'];
+// connection.query(sql,params, function(err, rows, fields){
+//     if(err){
+//         console.log(err);
+//     }
+//     else{
+//         console.log(rows);
+//     }
+// })
 connection.end();//database 연결 끊기 
