@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+import { config } from './apikey';
 var bodyParser = require('body-parser');
 var mysql = require('mysql');//mysql 참조
 var connection = mysql.createConnection({//연결할 테이블
@@ -160,6 +161,7 @@ app.post('/topic/:id/delete', function(req, res){
 })
 
 app.get('/weather', function(req, res){
-   var url = 'http://api.openweathermap.org/data/2.5/weather?lat=37.336912&lon=127.267397&lang=kr&appid=e0b5b3d5d34a8295de9e88f3c32426d2&units=metric';
+   var url = `http://api.openweathermap.org/data/2.5/weather?lat=37.336912&lon=127.267397&lang=kr&appid=${config.apikey}&units=metric`;
    fetch(url)
 })
+
