@@ -16,7 +16,7 @@ app.set('views', './views_mysql');
 app.set('view engine', 'jade');
 app.listen(3000, function(){
     console.log('Connected 3000port');
-    console.log(`server running at http://localhost:3000/topic`);
+    console.log(`server running at http://localhost:3000/weather`);
 });
 app.get('/topic/add', function(req, res){
     var sql = 'SELECT id, title FROM topic'
@@ -30,6 +30,7 @@ app.get('/topic/add', function(req, res){
         }
     })
 });
+
 app.post('/topic/add', function(req, res){
     var sql = 'INSERT INTO topic (title, description, author) VAlUES(?,?,?)';
     var title = req.body.title;
@@ -156,4 +157,9 @@ app.post('/topic/:id/delete', function(req, res){
     connection.query(sql, [id], function(err, result){
         res.redirect('/topic/');
     })
+})
+
+app.get('/weather', function(req, res){
+   var url = 'http://api.openweathermap.org/data/2.5/weather?lat=37.336912&lon=127.267397&lang=kr&appid=e0b5b3d5d34a8295de9e88f3c32426d2&units=metric';
+   fetch(url)
 })
