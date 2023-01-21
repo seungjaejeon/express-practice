@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weather</title>
+</head>
+<body>
+    <h1>hello it is weather 알리미~</h1>
+    <script type="text/javascript" src="../apikey.js">
+        const WEATHER_API = config.apikey;
+        const url = 'http://api.openweathermap.org/data/2.5/weather?lat=37.336912&lon=127.267397&lang=kr&appid='+config.apikey+'&units=metric';
+        fetch(url)
+            .then(response => response.json())
+            .then(data => console.log(`온도 : ${data.main.temp}, 날씨 : ${data.weather[0].main}`));
+    </script>
+</body>
+</html>
